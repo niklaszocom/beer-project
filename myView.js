@@ -1,42 +1,54 @@
-const api = "https://api.punkapi.com/v2/beers/random";
 const mainElement = document.querySelector("main");
-const formElement = document.querySelector("form");
+const api = 'https://api.punkapi.com/v2/beers';
+const searchParams = new URLSearchParams(document.location.search);
+const id = searchParams.get("name");
+const url = `${api}/${id}`;
 
-function getData(url) {
+getData(url,render);
+
+
+function getData(url, callback) {
     fetch(url)
     .then(res => res.json())
     .then(data => {
-       
-       console.log(data)
+        callback(data);
 
     })
     .catch(error => console.log(error));
 }
 
-formElement.addEventListener("click", randomBeer);
 
-
-function randomBeer(data) {
-
+function render(data) {
+    
+    
     const beer = data[0];
-    console.log(beer)
-    // const name = beer.name;
-    // const img = beer.image_url;
 
-    // const imgTag = document.createElement("img");
-    // const h1Tag = document.createElement("h1");
-    // const pTag = document.createElement("p");
+    const name = beer.name;
+    const description = beer.description;
+    const img = beer.image_url;
+    const abv = beer.abv;
+    const volumeValue = beer.volume.value;
+    const volumeUnit = beer.volume.unit;
 
-    // imgTag.src = img;
-    // h1Tag.textContent = name;
-    // pTag.textContent = "See More";
+    const h1Tag = document.createElement("hi");
+    const descriptionElement = document.createElement("p");
+    const imgElement = document.createElement("img");
+    const abvElement = document.createElement("p");
+    const volumeValueElement = document.createElement("p");
+    const volumeUnitElement = document.createElement("p");
 
-    // mainElement.appendChild(imgTag);
-    // mainElement.appendChild(h1Tag);
-    // mainElement.appendChild(pTag);
+    h1Tag.textContent = `name: ${name}`;
+    descriptionElement.textContent =  `description: ${description}`;
+    imgElement.src = img;
+    abvElement.textContent = `Alcohol by volume: ${abv}%`;
+    volumeValueElement.textContent = `Volume value: ${volumeValue}`;
+    volumeUnitElement.textContent = `Volume unit: ${volumeUnit}`;
+
+    mainElement.appendChild(h1Tag);
+    mainElement.appendChild(descriptionElement);
+    mainElement.appendChild(imgElement);
+    mainElement.appendChild(abvElement);
+    mainElement.appendChild(volumeValueElement);
+    mainElement.appendChild(volumeUnitElement);
 
 }
-
-
-getData(api);
-
