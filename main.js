@@ -29,6 +29,8 @@ button.addEventListener('click', () => {
 
             let beer = data[0].name;
             let beerpic = data[0].image_url;
+            console.log(data[0]);
+            if (data[0].image_url == null) {beerpic="";}
 
             getElement(beer, beerpic);
         })
