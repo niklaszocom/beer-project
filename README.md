@@ -50,4 +50,4 @@ Ni ska bygga en öl-wiki som använder sig av data från Punk API:et (https://pu
     * ABV Greater Than & ABV Less Than
 * Sökformuläret ska inkludera relevant validering
 * Sidan ska cachea tidigare besökta sidor av sökresultat. Dvs om man går från sida 1 till sida 2 och sen tillbaka till sida 1 i sökresultaten ska inte ytterligare request ske.
-kjjjk
+kjjjkppp
