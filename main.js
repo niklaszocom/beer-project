@@ -1,7 +1,7 @@
 const url = "https://api.punkapi.com/v2/beers/random";
 
 const button = document.querySelector("#button");
-
+const eMain = document.querySelector("main");
 
 
 
@@ -71,4 +71,13 @@ let removeAllChildNodes = (parent) => {
     while (parent.firstChild) {
         parent.firstChild.remove();
     }
+}
+
+
+function nysida(param, sidTitel) {
+    removeAllChildNodes(eMain);
+
+    let nyttElement = document.createElement("p");
+    eMain.appendChild(nyttElement);
+    nyttElement.textContent=sidTitel;
 }
