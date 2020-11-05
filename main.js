@@ -12,15 +12,23 @@ let displayRandomBeer = (beerName, beerImage) => {
     removeAllChildNodes(divElement);
 
     const h2Element = document.createElement("h2");
-    const textNode = document.createTextNode(beerName);
     const imgElement = document.createElement("img");
+    const aElement = document.createElement("a");
+
+    let textNode = document.createTextNode(beerName);
+    let linkNode = document.createTextNode("See More");
 
     imgElement.src = beerImage;
     imgElement.alt = "image:";
 
-    divElement.appendChild(h2Element);
+    aElement.href="info.html";
+    aElement.className="seeMoreLink";
+
     divElement.appendChild(imgElement);
+    divElement.appendChild(h2Element);
     h2Element.appendChild(textNode);
+    divElement.appendChild(aElement);
+    aElement.appendChild(linkNode);
 
 }
 
