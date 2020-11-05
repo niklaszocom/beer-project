@@ -27,9 +27,9 @@ let displayRandomBeer = (beerName, beerImage) => {
 
 let createRandomBeer = (data) => {
     let beer = data[0].name;
-        let beerpic = data[0].image_url;
-        //console.log(data[0]);
-        if (data[0].image_url == null) {beerpic="";}
+    let beerpic = data[0].image_url;
+    //console.log(data[0]);
+    if (data[0].image_url == null) { beerpic = "img/beer_without_image.png"; }
 
     displayRandomBeer(beer, beerpic);
 }
@@ -48,10 +48,10 @@ button.addEventListener('click', () => {
 //ange den URL som ska hämtas, samt den funktion (utan ()) som skall anropas:
 let fetcher = (url, callback) => {
     fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        callback(data);
-    })
+        .then(response => response.json())
+        .then(data => {
+            callback(data);
+        })
 
 }
 
