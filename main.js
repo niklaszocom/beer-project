@@ -5,7 +5,7 @@ const button = document.querySelector("#button");
 
 
 
-let displayRandomBeer = (beerName, beerImage) => {
+let displayRandomBeer = (beerName, beerImage, beerId) => {
 
     const divElement = document.querySelector(".showbeer");
 
@@ -21,7 +21,7 @@ let displayRandomBeer = (beerName, beerImage) => {
     imgElement.src = beerImage;
     imgElement.alt = "image:";
 
-    aElement.href = "info.html";
+    aElement.href = "info.html?name="+beerId;
     aElement.className = "seeMoreLink";
 
     divElement.appendChild(imgElement);
@@ -36,11 +36,12 @@ let displayRandomBeer = (beerName, beerImage) => {
 let createRandomBeer = (data) => {
     let beer = data[0].name;
     let beerpic = data[0].image_url;
+    let beerId = data[0].id;
     //console.log(data[0]);
     // Gratisbild: https://pixabay.com/sv/vectors/flaska-%C3%B6l-siluett-svart-dryck-310313/
-    if (data[0].image_url == null) { beerpic = "img/beer_without_image.png"; }
+    if (data[0].image_url == null) {beerpic = "img/beer_without_image.png";}
 
-    displayRandomBeer(beer, beerpic);
+    displayRandomBeer(beer, beerpic, beerId);
 }
 
 
