@@ -1,183 +1,150 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: sans-serif;
-}
-
-img {
-    height: 250px;
-}
-
-.testblock {
-    width: 90%;
-    min-height: 90%;
-    display: inline-block;
-    width: 90%;
-    min-height: 90%;
-    background-color: rgba(0, 0, 255, 0.5);
-    margin: 0;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    align-content: flex-start;
-}
-
-.testblock2 {
-    width: 100%;
-    max-width: 550px;
-    min-width: 400px;
-    min-height: 90%;
-    display: inline-block;
-    box-sizing: border-box;
-    background-color: rgba(0, 0, 255, 0.5);
-    margin: 5px;
-}
-
-.container {
-    width: 100%;
-    /* height: 100vh; */
-    background-color: rgb(179, 129, 129);
-}
-
-.navbar {
-    width: 100%;
-    height: 30%;
-    /* background-color: #262626; */
-    background-color: rgba(0, 0, 0, 0.4);
-    position: fixed;
-    top: 0;
-    right: -100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0 0 0 60%;
-    transition: right .8s cubic-bezier(1, 0, 0, 1);
-}
-
-.change {
-    right: 0;
-}
-
-.hamburger-menu {
-    width: 35px;
-    height: 30px;
-    position: fixed;
-    top: 50px;
-    right: 50px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.line {
-    width: 100%;
-    height: 3px;
-    background-color: rgb(133, 97, 97);
-    transition: all .8s;
-}
-
-.change .line-1 {
-    transform: rotateZ(-405deg) translate(-8px, 6px);
-}
-
-.change .line-2 {
-    opacity: 0;
-}
-
-.change .line-3 {
-    transform: rotateZ(405deg) translate(-8px, -6px);
-}
-
-.nav-list {
-    text-align: right;
-    /* display: flex;
-    flex-direction: row;
-    justify-content: center; */
-}
-
-.nav-item {
-    list-style: none;
-    margin: 25%;
-}
-
-.nav-link {
-    text-decoration: none;
-    font-size: 20px;
-    color: #eeeeee;
-    font-weight: 300;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    position: relative;
-    padding: 3px 0;
-    display: flex;
-    justify-content: center;
-}
-
-.nav-link::before,
-.nav-link::after {
-    content: "";
-    width: 100%;
-    height: 2px;
-    background-color: rgb(133, 97, 97);
-    position: absolute;
-    left: 0;
-    transform: scaleX(0);
-    transition: transform 0.5s;
-}
-
-.nav-link::after {
-    bottom: 0;
-    transform-origin: right;
-}
-
-.nav-link::before {
-    top: 0;
-    transform-origin: left;
-}
-
-.nav-link:hover::before,
-.nav-link:hover::after {
-    transform: scaleX(1);
-}
-
-main {
-    background-color: rgb(179, 129, 129);
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-}
-
-section {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    text-align: center;
-}
-
-img {
-    height: 250px;
-}
-
-
-/* CSS added by Fredrik begin: */
-
-.seeMoreLink {
-    margin-bottom: 20px;
-    display: block;
-}
-
-.seeMoreLink:after {
-    content: " \22B3";
-}
-
-
-/* CSS added by Fredrik end */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font-family: sans-serif;
+    }
+    
+    nav {
+        background: rgb(75, 57, 57);
+        width: 100%;
+        position: fixed;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    nav .mainMenu {
+        display: flex;
+        list-style: none;
+    }
+    
+    nav .mainMenu li a {
+        display: inline-block;
+        padding: 15px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    
+    nav .mainMenu li a:hover {
+        background: #9e6868;
+    }
+    
+    nav .openMenu {
+        font-size: 2rem;
+        margin: 20px;
+        display: none;
+        cursor: pointer;
+    }
+    
+    nav .mainMenu .closeMenu,
+    .icons i {
+        font-size: 2rem;
+        display: none;
+        cursor: pointer;
+    }
+    
+    nav .logo {
+        margin: 6px;
+        font-size: 25px;
+        cursor: pointer;
+    }
+    
+    main {
+        background-color: rgb(179, 129, 129);
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+    }
+    
+    section {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        text-align: center;
+    }
+    
+    img {
+        height: 250px;
+    }
+    /* CSS added by Fredrik begin: */
+    
+    .seeMoreLink {
+        margin-bottom: 20px;
+        display: block;
+    }
+    
+    .seeMoreLink:after {
+        content: " \22B3";
+    }
+    
+    .testblock {
+        width: 90%;
+        min-height: 90%;
+        display: inline-block;
+        width: 90%;
+        min-height: 90%;
+        background-color: rgba(0, 0, 255, 0.5);
+        margin: 0;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+    
+    .testblock2 {
+        width: 100%;
+        max-width: 550px;
+        min-width: 400px;
+        min-height: 90%;
+        display: inline-block;
+        box-sizing: border-box;
+        background-color: rgba(0, 0, 255, 0.5);
+        margin: 5px;
+    }
+    /* CSS added by Fredrik end */
+    
+    @media(max-width: 800px) {
+        nav .mainMenu {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 10;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgb(75, 57, 57);
+            transition: top 1s ease;
+            display: none;
+        }
+        nav .mainMenu .closeMenu {
+            display: block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        nav .openMenu {
+            display: block;
+        }
+        nav .mainMenu li a:hover {
+            background: none;
+            color: #9e6868;
+            font-size: 1.6rem;
+        }
+        .icons {
+            display: inline-block;
+            padding: 12px;
+        }
+    }

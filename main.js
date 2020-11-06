@@ -1,9 +1,20 @@
-const menuIcon = document.querySelector('.hamburger-menu');
-const navbar = document.querySelector('.navbar');
+//Navbar
 
-menuIcon.addEventListener('click', () => {
-    navbar.classList.toggle('change');
-});
+const mainMenu = document.querySelector('.mainMenu');
+const closeMenu = document.querySelector('.closeMenu');
+const openMenu = document.querySelector('.openMenu');
+
+openMenu.addEventListener('click', show);
+closeMenu.addEventListener('click', close);
+
+function show() {
+    mainMenu.style.display = 'flex';
+    mainMenu.style.top = '0';
+}
+
+function close() {
+    mainMenu.style.top = '-100%';
+}
 
 
 let menulink = document.querySelectorAll(".nav-link");
@@ -14,7 +25,7 @@ for (let i = 0; i < menulink.length; i++) {
 }
 
 
-
+//Main
 
 const url = "https://api.punkapi.com/v2/beers/random";
 
