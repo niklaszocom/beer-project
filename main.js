@@ -66,7 +66,7 @@ let createRandomBeer = (data) => {
     let beerId = data[0].id;
     //console.log(data[0]);
     // Gratisbild: https://pixabay.com/sv/vectors/flaska-%C3%B6l-siluett-svart-dryck-310313/
-    if (data[0].image_url == null) { beerpic = noPic; }
+    if (data[0].image_url == null) {beerpic=noPic;}
 
     displayRandomBeer(beer, beerpic, beerId);
 }
@@ -83,16 +83,51 @@ button.addEventListener('click', () => {
 
 function showProduct(beerId) {
 
+    fetcher("https://api.punkapi.com/v2/beers/"+beerId, showProduct2);
+
+}
+
+function showProduct2(beerId) {
+
+    console.log(beerId);
+
     let eContainer = document.createElement("section");
+    eContainer.className="testblock";
     eMain.appendChild(eContainer);
 
     let eContainer2 = document.createElement("div");
-    eMain.appendChild(eContainer2);
-    eContainer2.className="testblock";
-    eContainer2.textContent="container2";
+    eContainer.appendChild(eContainer2);
+    eContainer2.className="testblock2";
 
-    eContainer.className="testblock";
-    eContainer.textContent="container";
+    let eContainer3 = document.createElement("div");
+    eContainer.appendChild(eContainer3);
+    eContainer3.className="testblock2";
+
+    let imgElement = document.createElement("img");
+    eContainer3.appendChild(imgElement);
+    imgElement.className="showimg";
+    imgElement.alt="bild:";
+    imgElement.src=beerId[0].image_url;
+
+    let infoElement = document.createElement("ul");
+    eContainer2.appendChild(infoElement);
+    infoElement.className="showinfo";
+
+    let infoData= [
+        {desc: "Alcohol by volume",val: beerId[0].abv},
+        {desc: "Volume",val: beerId[0].volume.value+" "+beerId[0].volume.unit},
+        {desc: "Ingredients",val: "tttt"},
+        {desc: "Hops",val: "N/A"},
+        {desc: "Food pairing",val: "N/A"},
+        {desc: "Brewers tips",val: "N/A"}
+      ];
+
+    for (let i=0;i<infoData.length;i++) {
+        let optElement = document.createElement("li");
+        eContainer2.appendChild(optElement);
+        optElement.className="showoption";
+        optElement.textContent=infoData[i].desc+": "+infoData[i].val;
+    }
 
 }
 
@@ -122,7 +157,9 @@ let removeAllChildNodes = (parent) => {
 
 function nysida(param, sidTitel) {
     removeAllChildNodes(eMain);
+    /*
     let nyttElement = document.createElement("p");
     eMain.appendChild(nyttElement);
     nyttElement.textContent = sidTitel;
+    */
 }
