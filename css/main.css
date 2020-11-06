@@ -17,7 +17,8 @@ img {
     min-height:90%;
     display:inline-block;
     box-sizing: border-box;
-    background-color:rgba(0,0,0,0.5);
+    background-color:rgba(0,0,255,0.5);
+    margin:5px;
 }
 
 .container {

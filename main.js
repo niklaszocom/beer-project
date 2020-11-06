@@ -8,6 +8,14 @@ menuIcon.addEventListener('click', () => {
 });
 
 
+let menulink = document.querySelectorAll(".nav-link");
+for (let i=0;i<menulink.length;i++) {
+menulink[i].addEventListener('click', () => {
+    nysida(menulink[i+1], menulink[i].textContent);
+});
+}
+
+
 
 
 const url = "https://api.punkapi.com/v2/beers/random";
@@ -78,16 +86,6 @@ function showProduct(beerId) {
     let eContainer = document.createElement("section");
     eMain.appendChild(eContainer);
 
-    /*
-    let inBlock = [];
-    for (let i=0;i<3;i++) {
-    inBlock[i] = document.createElement("div");
-    eContainer.appendChild(inBlock[i]);
-    inBlock[i].className="testblock";
-    inBlock[i].textContent="container "+i;
-    }
-    */
-
     let eContainer2 = document.createElement("div");
     eMain.appendChild(eContainer2);
     eContainer2.className="testblock";
@@ -109,6 +107,7 @@ let fetcher = (url, callback) => {
         .then(data => {
             callback(data);
         })
+        .catch(error => console.log(error));
 
 }
 
@@ -123,9 +122,7 @@ let removeAllChildNodes = (parent) => {
 
 function nysida(param, sidTitel) {
     removeAllChildNodes(eMain);
-    /*
     let nyttElement = document.createElement("p");
     eMain.appendChild(nyttElement);
     nyttElement.textContent = sidTitel;
-    */
 }
