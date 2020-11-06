@@ -11,14 +11,13 @@ img {
     height: 250px;
 }
 
-
 .testblock {
-    width:90%;
-    min-height:90%;
-    display:inline-block;
+    width: 90%;
+    min-height: 90%;
+    display: inline-block;
     box-sizing: border-box;
-    background-color:rgba(0,0,255,0.5);
-    margin:5px;
+    background-color: rgba(0, 0, 255, 0.5);
+    margin: 5px;
 }
 
 .container {
@@ -133,6 +132,7 @@ main {
     background-color: rgb(179, 129, 129);
     display: flex;
     justify-content: center;
+    height: 100vh;
 }
 
 section {

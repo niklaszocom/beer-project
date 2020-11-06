@@ -1,5 +1,3 @@
-
-
 const menuIcon = document.querySelector('.hamburger-menu');
 const navbar = document.querySelector('.navbar');
 
@@ -9,10 +7,10 @@ menuIcon.addEventListener('click', () => {
 
 
 let menulink = document.querySelectorAll(".nav-link");
-for (let i=0;i<menulink.length;i++) {
-menulink[i].addEventListener('click', () => {
-    nysida(menulink[i+1], menulink[i].textContent);
-});
+for (let i = 0; i < menulink.length; i++) {
+    menulink[i].addEventListener('click', () => {
+        nysida(menulink[i + 1], menulink[i].textContent);
+    });
 }
 
 
@@ -23,7 +21,7 @@ const url = "https://api.punkapi.com/v2/beers/random";
 const button = document.querySelector("#button");
 const eMain = document.querySelector("main");
 
-const noPic="img/beer_without_image.png";
+const noPic = "img/beer_without_image.png";
 
 
 
@@ -88,11 +86,11 @@ function showProduct(beerId) {
 
     let eContainer2 = document.createElement("div");
     eMain.appendChild(eContainer2);
-    eContainer2.className="testblock";
-    eContainer2.textContent="container2";
+    eContainer2.className = "testblock";
+    eContainer2.textContent = "container2";
 
-    eContainer.className="testblock";
-    eContainer.textContent="container";
+    eContainer.className = "testblock";
+    eContainer.textContent = "container";
 
 }
 
@@ -124,5 +122,5 @@ function nysida(param, sidTitel) {
     removeAllChildNodes(eMain);
     let nyttElement = document.createElement("p");
     eMain.appendChild(nyttElement);
-    nyttElement.textContent = sidTitel;
+    nyttElement.textContent = '';
 }
