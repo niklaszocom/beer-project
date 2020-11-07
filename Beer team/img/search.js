@@ -61,13 +61,14 @@ function render(data) {
     prevBtn.innerText = "prev";
     btnElement.appendChild(prevBtn);
 
-    
+    let n = 1;
+
 
     prevBtn.addEventListener("click",() => {
 
         removeAllChildnode(ulElement)
 
-        let url = `${api}&page=${n}&beer_name=${array[0]}`;
+        let url = `${api}&page=${n-1}&beer_name=${array[0]}`;
         n -= 1;
         // console.log(url)
 
@@ -95,13 +96,13 @@ function render(data) {
     nextBtn.innerText = "next";
     btnElement.appendChild(nextBtn);
    
-    let n = 2;
+
   
     nextBtn.addEventListener("click",() => {
 
         removeAllChildnode(ulElement)
 
-        let url = `${api}&page=${n}&beer_name=${array[0]}`;
+        let url = `${api}&page=${n+1}&beer_name=${array[0]}`;
         n += 1;
         console.log(url)
 
