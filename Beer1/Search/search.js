@@ -6,9 +6,11 @@ const prevBtn = document.createElement("button");
 const nextBtn = document.createElement("button");
 prevBtn.appendChild(document.createTextNode("prev"));
 nextBtn.appendChild(document.createTextNode("next"));
+
 // Loader
 const loader = document.createElement("h1");
 loader.appendChild(document.createTextNode("Loading..."));
+
 // Loader
 let page = 1;
 let displayButtons = false;
@@ -19,7 +21,8 @@ const response = new XMLHttpRequest();
 
 let currentBeers = []; 
 
-// Поиск
+// Search
+
 btn.onclick = (e) => {
     e.preventDefault();
     response
@@ -52,7 +55,7 @@ response.onreadystatechange = function() {
         }
     }
 };
-// Поиск
+// Search
 
 prevBtn.addEventListener("click", () => {
     if(page > 1) {
