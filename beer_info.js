@@ -31,24 +31,20 @@ function render(data) {
     const volumeUnit = beer.volume.unit;
 
     const h1Tag = document.createElement("hi");
-    const descriptionElement = document.createElement("p");
     const imgElement = document.createElement("img");
-    const abvElement = document.createElement("p");
-    const volumeValueElement = document.createElement("p");
-    const volumeUnitElement = document.createElement("p");
+    const descriptionElement = document.createElement("p");
 
+    
     h1Tag.textContent = `name: ${name}`;
-    descriptionElement.textContent =  `description: ${description}`;
     imgElement.src = img;
-    abvElement.textContent = `Alcohol by volume: ${abv}%`;
-    volumeValueElement.textContent = `Volume value: ${volumeValue}`;
-    volumeUnitElement.textContent = `Volume unit: ${volumeUnit}`;
+    descriptionElement.innerHTML = 
+     `description: ${description}<br>
+      Alcohol by volume: ${abv}%<br>
+      Volume value: ${volumeValue}<br>
+      Volume unit: ${volumeUnit}`;
 
     mainElement.appendChild(h1Tag);
-    mainElement.appendChild(descriptionElement);
     mainElement.appendChild(imgElement);
-    mainElement.appendChild(abvElement);
-    mainElement.appendChild(volumeValueElement);
-    mainElement.appendChild(volumeUnitElement);
+    mainElement.appendChild( descriptionElement);
 
 }
