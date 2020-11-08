@@ -34,16 +34,24 @@ function render(data) {
     const yeast = beer.ingredients.yeast;
 
 
-    const array_values=(v,key,parent1,parent2)=>{
-        var ret=[];
-        if(/Number|String|Null/.test(Object.prototype.toString.call(v))){
-          if(typeof parent2!=="undefined") ret.push([v,key,parent1,parent2]);
-        }else{
-          Object.entries(v).forEach((x,y)=>{ret=ret.concat(array_values(x[1],x[0],key,parent1))});
+    let ingredientsArray = [];
+
+    for (const [key, value] of Object.entries(beer.ingredients)) {
+        if (Array.isArray(value)) {
+          for (const element of value) {
+           
+            ingredientsArray.push(`${key} name: ${element.name}`);
+            ingredientsArray.push(`amount value: ${element.amount.value}`);
+            ingredientsArray.push(`amount unit: ${element.amount.unit}`);
+            if ('add' in element) {
+                ingredientsArray.push(`add ${element.add}`);
+                ingredientsArray.push(`attribute ${element.attribute}`);
+            }
+          }
         }
-        return ret;
       }
-      const ingredients=array_values(beer.ingredients).map(x=>x.filter(x=>!/^\d+$/.test(x)).reverse());
+    //   console.log(ingredientsArray)
+      const ingredients = ingredientsArray
       const ingredientsElement = document.innerHTML = ingredients;
 
 
