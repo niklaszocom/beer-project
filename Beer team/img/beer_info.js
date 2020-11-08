@@ -44,14 +44,14 @@ function render(data) {
             ingredientsArray.push(`amount value: ${element.amount.value}`);
             ingredientsArray.push(`amount unit: ${element.amount.unit}`);
             if ('add' in element) {
-                ingredientsArray.push(`add ${element.add}`);
-                ingredientsArray.push(`attribute ${element.attribute}`);
+                ingredientsArray.push(`add :${element.add}`);
+                ingredientsArray.push(`attribute :${element.attribute}`);
             }
           }
         }
       }
-    //   console.log(ingredientsArray)
-      const ingredients = ingredientsArray
+   
+      const ingredients = ingredientsArray.join("");
       const ingredientsElement = document.innerHTML = ingredients;
 
 
