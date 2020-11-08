@@ -7,6 +7,18 @@ const nextBtn = document.createElement("button");
 prevBtn.appendChild(document.createTextNode("prev"));
 nextBtn.appendChild(document.createTextNode("next"));
 
+const urladdress = function () {
+        var elements = document.querySelectorAll("a");
+        for (var i = 0; i < elements.length; i++) {
+        elements[i].onclick = function(e){
+        e.preventDefault()
+        let id = this.href
+        localStorage.setItem("beerId", id.replace("http://127.0.0.1:5500/Beer/Search/", ""))
+        location.href = "http://127.0.0.1:5500/Beer/beer/index.html"
+        console.log(id)
+        }
+    }
+}
 // Loader
 
 const loader = document.createElement("h1");
@@ -21,14 +33,14 @@ const api = "https://api.punkapi.com/v2/";
 
 const response = new XMLHttpRequest();
 
-let currentBeers = []; 
+let currentBeers = [];
 
 // Search
 btn.onclick = (e) => {
     e.preventDefault();
     response
-        .open("GET", `${api}beers?page=1&per_page=10&beer_name=${field.value}`, true); 
-    response.send(); 
+        .open("GET", `${api}beers?page=1&per_page=10&beer_name=${field.value}`, true);
+    response.send();
     main.appendChild(loader);
 };
 
@@ -49,12 +61,13 @@ response.onreadystatechange = function() {
         for(let i = 0; i <= currentBeers.length - 1; i++) {
             const li = document.createElement("li");
             const a = document.createElement("a");
-            a.href = `/beer/${currentBeers[i].id}`;
+            a.href = `${currentBeers[i].id}`;
             a.appendChild(document.createTextNode(currentBeers[i].name));
             li.appendChild(a);
             ul.appendChild(li);
         }
-    }
+        urladdress()
+  }
 };
 // Search
 
@@ -67,7 +80,7 @@ prevBtn.addEventListener("click", () => {
         response
             .open("GET", `${api}beers?page=${page}&per_page=10&beer_name=${field.value}`, true);
 
-        response.send(); 
+        response.send();
 
 
         response.onreadystatechange = function() {
@@ -78,11 +91,12 @@ prevBtn.addEventListener("click", () => {
                 for(let i = 0; i <= currentBeers.length - 1; i++) {
                     const li = document.createElement("li");
                     const a = document.createElement("a");
-                    a.href = `/beer/${currentBeers[i].id}`;
+                    a.href = `${currentBeers[i].id}`;
                     a.appendChild(document.createTextNode(currentBeers[i].name));
                     li.appendChild(a);
                     ul.appendChild(li);
                 }
+                urladdress()
             }
         };
     }
@@ -97,7 +111,7 @@ nextBtn.addEventListener("click", () => {
         response
             .open("GET", `${api}beers?page=${page}&per_page=10&beer_name=${field.value}`, true);
 
-        response.send(); 
+        response.send();
 
 
         response.onreadystatechange = function() {
@@ -108,11 +122,12 @@ nextBtn.addEventListener("click", () => {
                 for(let i = 0; i <= currentBeers.length - 1; i++) {
                     const li = document.createElement("li");
                     const a = document.createElement("a");
-                    a.href = `/beer/${currentBeers[i].id}`;
+                    a.href = `${currentBeers[i].id}`;
                     a.appendChild(document.createTextNode(currentBeers[i].name));
                     li.appendChild(a);
                     ul.appendChild(li);
                 }
+                urladdress()
             }
         };
     }

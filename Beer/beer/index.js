@@ -4,23 +4,30 @@ let singleBeer = null;
 let beerId = localStorage.getItem('beerId');
 let td = document.querySelectorAll("td")
 let img = document.querySelector("img")
-console.log(img.src);
 
-let renderHops = function (obj) {
+
+let renderData = function (obj, index) {
 	let str = (item) => {
-		return `
-	<ul> 
-		<li><strong>Name</strong>${item.name}</li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>`
-	}
-	for (const prop of obj) {
-		console.log(prop)
-		str(prop)
+		if (item.attribute) {
+			return `<ul class="list-group"> 
+					<li class="list-group-item"><strong>Name</strong>${item.name}</li>
+					<li class="list-group-item"><strong>Add</strong>${item.add}</li>
+					<li class="list-group-item"><strong>Amount</strong>${item.amount.value} ${item.amount.unit}</li>
+					<li class="list-group-item"><strong>Attribute</strong>${item.attribute}</li>
+				</ul>`
+		} else {
+			return `<ul>
+				<li><strong>Amount</strong>${item.amount.value} ${item.amount.unit}</li>
+				<li><strong>Name</strong>${item.name}</li>
+			</ul>`
+		}
 
 	}
+	let a = []
+	for (const prop in obj) {
+		a.push(str(obj[prop]))
+	}
+	td[index].innerHTML = a
 }
 
 response.open("GET", `https://api.punkapi.com/v2/beers/${beerId}`, true);
@@ -39,15 +46,10 @@ response.onreadystatechange = function () {
 		td[2].innerHTML = singleBeer.abv
 		td[3].innerHTML = singleBeer.volume.value
 		// td[4].innerHTML = singleBeer.ingredients
-		// td[5].innerHTML = singleBeer.ingredients.hops 
-		renderHops(singleBeer.ingredients.hops)
+		renderData(singleBeer.ingredients.malt, 4)
+		renderData(singleBeer.ingredients.hops, 5)
 		td[6].innerHTML = singleBeer.food_pairing
 		td[7].innerHTML = singleBeer.brewers_tips
 	}
 };
-
-
-
-
-
 
