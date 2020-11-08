@@ -29,10 +29,23 @@ function render(data) {
     const abv = beer.abv;
     const volumeValue = beer.volume.value;
     const volumeUnit = beer.volume.unit;
-    //här behöver ingrediens
     const food_pairing = beer.food_pairing;
     const brewers_tips = beer.brewers_tips;
     const yeast = beer.ingredients.yeast;
+
+
+    const array_values=(v,key,parent1,parent2)=>{
+        var ret=[];
+        if(/Number|String|Null/.test(Object.prototype.toString.call(v))){
+          if(typeof parent2!=="undefined") ret.push([v,key,parent1,parent2]);
+        }else{
+          Object.entries(v).forEach((x,y)=>{ret=ret.concat(array_values(x[1],x[0],key,parent1))});
+        }
+        return ret;
+      }
+      const ingredients=array_values(beer.ingredients).map(x=>x.filter(x=>!/^\d+$/.test(x)).reverse());
+      const ingredientsElement = document.innerHTML = ingredients;
+
 
     const h1Tag = document.createElement("hi");
     const imgElement = document.createElement("img");
@@ -46,6 +59,7 @@ function render(data) {
       Alcohol by volume: ${abv}%<br>
       Volume value: ${volumeValue}<br>
       Volume unit: ${volumeUnit}<br>
+      Ingredients:  ${ingredients}<br>
       Yeast: ${yeast}<br
       Food pairing: ${food_pairing}<br>
       Brewers tips: ${brewers_tips}<br>`;
