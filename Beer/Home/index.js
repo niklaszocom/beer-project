@@ -2,8 +2,6 @@
 //DOM
 const root = document.getElementById("root")
 
-
-
 //Response
 const response = new XMLHttpRequest();
 let randomBeer = null;
@@ -21,13 +19,15 @@ response.onreadystatechange = function () {
 	} else {
 		//   console.log(response.responseText);
 		const randomBeer = JSON.parse(response.responseText)[0];
-		
+
+		localStorage.setItem('beerId', randomBeer.id);
+
 		//create element image
 		if (randomBeer.image_url) {
 			const img = document.createElement("img")
 			img.src = randomBeer.image_url;
 			console.log(randomBeer);
-			
+
 			// document.body.innerHTML = randomBeer[0].name;
 			root.appendChild(img);
 		}
@@ -40,7 +40,7 @@ response.onreadystatechange = function () {
 		beerName.appendChild(document.createTextNode(randomBeer.name))
 
 		const linkToTheBeer = document.createElement("a")
-		linkToTheBeer.href = "/beer"
+		linkToTheBeer.href = "/Beer/beer"
 		linkToTheBeer.appendChild(document.createTextNode("About Beer"))
 		root.appendChild(beerName)
 		root.appendChild(linkToTheBeer)
