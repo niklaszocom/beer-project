@@ -29,6 +29,9 @@ function render(data) {
     const abv = beer.abv;
     const volumeValue = beer.volume.value;
     const volumeUnit = beer.volume.unit;
+    const food_pairing = beer.food_pairing;
+    const brewers_tips = beer.brewers_tips;
+    const yeast = beer.ingredients.yeast;
 
     const h1Tag = document.createElement("hi");
     const imgElement = document.createElement("img");
@@ -41,7 +44,10 @@ function render(data) {
      `description: ${description}<br>
       Alcohol by volume: ${abv}%<br>
       Volume value: ${volumeValue}<br>
-      Volume unit: ${volumeUnit}`;
+      Volume unit: ${volumeUnit}<br>
+      Yeast: ${yeast}<br
+      Food pairing: ${food_pairing}<br>
+      Brewers tips: ${brewers_tips}<br>`;
 
     mainElement.appendChild(h1Tag);
     mainElement.appendChild(imgElement);
