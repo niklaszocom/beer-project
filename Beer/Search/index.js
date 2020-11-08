@@ -6,10 +6,14 @@ const prevBtn = document.createElement("button");
 const nextBtn = document.createElement("button");
 prevBtn.appendChild(document.createTextNode("prev"));
 nextBtn.appendChild(document.createTextNode("next"));
+
 // Loader
+
 const loader = document.createElement("h1");
 loader.appendChild(document.createTextNode("Loading..."));
+
 // Loader
+
 let page = 1;
 let displayButtons = false;
 
