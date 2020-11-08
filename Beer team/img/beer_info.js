@@ -40,12 +40,12 @@ function render(data) {
         if (Array.isArray(value)) {
           for (const element of value) {
            
-            ingredientsArray.push(`${key} name: ${element.name}`);
-            ingredientsArray.push(`amount value: ${element.amount.value}`);
-            ingredientsArray.push(`amount unit: ${element.amount.unit}`);
+            ingredientsArray.push(`${key} name: ${element.name}<br>`);
+            ingredientsArray.push(`amount value: ${element.amount.value}<br>`);
+            ingredientsArray.push(`amount unit: ${element.amount.unit}<br>`);
             if ('add' in element) {
-                ingredientsArray.push(`add :${element.add}`);
-                ingredientsArray.push(`attribute :${element.attribute}`);
+                ingredientsArray.push(`add :${element.add}<br>`);
+                ingredientsArray.push(`attribute :${element.attribute}<br>`);
             }
           }
         }
