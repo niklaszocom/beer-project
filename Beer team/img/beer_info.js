@@ -29,6 +29,7 @@ function render(data) {
     const abv = beer.abv;
     const volumeValue = beer.volume.value;
     const volumeUnit = beer.volume.unit;
+    //här behöver ingrediens
     const food_pairing = beer.food_pairing;
     const brewers_tips = beer.brewers_tips;
     const yeast = beer.ingredients.yeast;
