@@ -10,15 +10,15 @@ let renderData = function (obj, index) {
 	let str = (item) => {
 		if (item.attribute) {
 			return `<ul class="list-group"> 
-					<li class="list-group-item"><strong>Name</strong>${item.name}</li>
-					<li class="list-group-item"><strong>Add</strong>${item.add}</li>
-					<li class="list-group-item"><strong>Amount</strong>${item.amount.value} ${item.amount.unit}</li>
-					<li class="list-group-item"><strong>Attribute</strong>${item.attribute}</li>
+					<li class="list-group-item list-group-item-primary"><strong>Name: </strong>${item.name} </li>
+					<li class="list-group-item list-group-item-secondary"><strong>Add: </strong>${item.add} </li>
+					<li class="list-group-item list-group-item-success"><strong>Amount: </strong>${item.amount.value} ${item.amount.unit} </li>
+					<li class="list-group-item list-group-item-info"><strong>Attribute: </strong>${item.attribute}</li>
 				</ul>`
 		} else {
-			return `<ul>
-				<li><strong>Amount</strong>${item.amount.value} ${item.amount.unit}</li>
-				<li><strong>Name</strong>${item.name}</li>
+			return `<ul class="list-group">
+				<li class="list-group-item list-group-item-dark"><strong>Amount: </strong>${item.amount.value} ${item.amount.unit}</li>
+				<li class="list-group-item list-group-item-success"><strong>Name: </strong>${item.name}</li>
 			</ul>`
 		}
 
