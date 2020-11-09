@@ -20,6 +20,8 @@
         box-sizing: border-box;
         object-fit: cover;
     }
+
+    
     
     .btn {
         display: flex;
@@ -109,4 +111,45 @@
               float: none;
               display: block;
             }
-        }
+  
+      }
+    }
+      #field {
+        display: flex;
+        width:500px;
+        padding:20px;
+        box-sizing: border-box;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        margin-left: 390px;
+        margin-top: 250px;
+      } 
+
+      #btn {
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: pink;
+        text-align: center;
+        border-radius: 11px;
+        width: 131px;
+        height: 39px;
+        box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 100px;
+        margin-left: 570px;
+        margin-top: 20px;
+
+    }
+
+    .searchHeading {
+        display: flex;
+        justify-content: center;
+    }
+
+    h1 {
+        
+    }
+
