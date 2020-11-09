@@ -22,7 +22,6 @@ function render(data) {
     
     
     const beer = data[0];
-
     const name = beer.name;
     const description = beer.description;
     const img = beer.image_url;
