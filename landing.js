@@ -1,26 +1,9 @@
 const url = "https://api.punkapi.com/v2/beers/random";
 const mainElement = document.querySelector('main');
 let beers; 
-const btnElement = document.querySelector('button.btnGo');
-
-btnElement.onclick = btnOnClick;
-function btnOnClick(){
-    let p = fetch(url);
-
-
-p.then(response => response.json())
-.then(data => {
-    
-    beers = data;
-    init();
-
-
-})
-
-}
 
 const init = () => {
- mainElement.innerHTML = ""
+
     const sectionElement = document.createElement('section');
 
     for (let i = 0; i < beers.length; i++) {
@@ -29,7 +12,6 @@ const init = () => {
         
 
         const fullName = `${beerName}`;
-
         
         const articleElement = document.createElement("article");
         const h2Element = document.createElement("h2");
@@ -42,14 +24,12 @@ const init = () => {
         articleElement.appendChild(h2Element);
         articleElement.appendChild(imgElement);
         sectionElement.appendChild(articleElement);
-        
 
         
 
-        console.log(beer.image_url)
+        
 
-
-      
+       console.log(beer.image_url)
 
     
     }
@@ -71,3 +51,4 @@ p.then(response => response.json())
 
 
 })
+
