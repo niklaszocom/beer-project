@@ -2,6 +2,7 @@ const url = "https://api.punkapi.com/v2/beers/random";
 const mainElement = document.querySelector('main');
 let beers; 
 const btnElement = document.querySelector('button.btnGo');
+const seeMoreBtn = document.querySelector('button.seeMoreBtn')
 
 btnElement.onclick = btnOnClick;
 function btnOnClick(){
@@ -35,6 +36,7 @@ const init = () => {
         const h2Element = document.createElement("h2");
         const imgElement = document.createElement("img");
         const textNode = document.createTextNode(fullName);
+        seeMoreBtn.setAttribute("name", beer.id);
        
         imgElement.src = beer.image_url;
 
@@ -58,6 +60,15 @@ const init = () => {
     
     mainElement.appendChild(sectionElement);
 
+
+}
+
+seeMoreBtn.addEventListener("click", onClicked);
+
+function onClicked (evt) {
+    const id = evt.target.getAttribute("name");
+    const url = `beer_info.html?name=${id}`;
+    document.location.href = url;
 }
 
 let p = fetch(url);
