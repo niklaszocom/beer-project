@@ -7,6 +7,18 @@ const nextBtn = document.createElement("button");
 prevBtn.appendChild(document.createTextNode("prev"));
 nextBtn.appendChild(document.createTextNode("next"));
 
+const urladdress = function () {
+        var elements = document.querySelectorAll("a");
+        for (var i = 0; i < elements.length; i++) {
+        elements[i].onclick = function(e){
+        e.preventDefault()
+        let id = this.href
+        localStorage.setItem("beerId", id.replace("http://127.0.0.1:5500/Beer/Search/", ""))
+        location.href = "http://127.0.0.1:5500/Beer/beer/index.html"
+        console.log(id)
+        }
+    }
+}
 // Loader
 
 const loader = document.createElement("h1");
@@ -32,10 +44,10 @@ btn.onclick = (e) => {
     main.appendChild(loader);
 };
 
-response.onreadystatechange = function () {
-    if (response.readyState === 4 && response.status === 200) {
+response.onreadystatechange = function() {
+    if(response.readyState === 4 && response.status === 200) {
         main.removeChild(loader);
-        if (!displayButtons) {
+        if(!displayButtons) {
             displayButtons = true;
             main.appendChild(ul);
             document.body.appendChild(prevBtn);
@@ -46,21 +58,21 @@ response.onreadystatechange = function () {
         page = 1;
         currentBeers = JSON.parse(response.responseText);
 
-        for (let i = 0; i <= currentBeers.length - 1; i++) {
+        for(let i = 0; i <= currentBeers.length - 1; i++) {
             const li = document.createElement("li");
             const a = document.createElement("a");
-            a.href = `/Aktuella/beer_info.html?name=${currentBeers[i].id}`;
+            a.href = `${currentBeers[i].id}`;
             a.appendChild(document.createTextNode(currentBeers[i].name));
             li.appendChild(a);
             ul.appendChild(li);
         }
-
-    }
+        urladdress()
+  }
 };
 // Search
 
 prevBtn.addEventListener("click", () => {
-    if (page > 1) {
+    if(page > 1) {
         removeAllChildnode(ul);
         page--;
         const response = new XMLHttpRequest();
@@ -70,15 +82,15 @@ prevBtn.addEventListener("click", () => {
 
         response.send();
 
-        response.onreadystatechange = function () {
-            if (response.readyState === 4 && response.status === 200) {
+        response.onreadystatechange = function() {
+            if(response.readyState === 4 && response.status === 200) {
                 currentBeers = JSON.parse(response.responseText);
                 main.appendChild(ul);
 
-                for (let i = 0; i <= currentBeers.length - 1; i++) {
+                for(let i = 0; i <= currentBeers.length - 1; i++) {
                     const li = document.createElement("li");
                     const a = document.createElement("a");
-                    a.href = `/Aktuella/beer_info.html?name=${currentBeers[i].id}`;
+                    a.href = `${currentBeers[i].id}`;
                     a.appendChild(document.createTextNode(currentBeers[i].name));
                     li.appendChild(a);
                     ul.appendChild(li);
@@ -90,7 +102,7 @@ prevBtn.addEventListener("click", () => {
 });
 
 nextBtn.addEventListener("click", () => {
-    if (currentBeers.length === 10) {
+    if(currentBeers.length === 10) {
         page++;
         removeAllChildnode(ul);
         const response = new XMLHttpRequest();
@@ -101,15 +113,15 @@ nextBtn.addEventListener("click", () => {
         response.send();
 
 
-        response.onreadystatechange = function () {
-            if (response.readyState === 4 && response.status === 200) {
+        response.onreadystatechange = function() {
+            if(response.readyState === 4 && response.status === 200) {
                 currentBeers = JSON.parse(response.responseText);
                 main.appendChild(ul);
 
-                for (let i = 0; i <= currentBeers.length - 1; i++) {
+                for(let i = 0; i <= currentBeers.length - 1; i++) {
                     const li = document.createElement("li");
                     const a = document.createElement("a");
-                    a.href = `/Aktuella/beer_info.html?name=${currentBeers[i].id}`;
+                    a.href = `${currentBeers[i].id}`;
                     a.appendChild(document.createTextNode(currentBeers[i].name));
                     li.appendChild(a);
                     ul.appendChild(li);
@@ -121,7 +133,7 @@ nextBtn.addEventListener("click", () => {
 });
 
 function removeAllChildnode(parent) {
-    while (parent.firstChild) {
+    while(parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
