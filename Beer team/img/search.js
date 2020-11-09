@@ -65,6 +65,7 @@ function render(data) {
 
 
     prevBtn.addEventListener("click",() => {
+        
 
         removeAllChildnode(ulElement)
 
