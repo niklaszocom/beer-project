@@ -54,7 +54,7 @@ function render(data) {
       const ingredientsElement = document.innerHTML = ingredients;
 
 
-    const h1Tag = document.createElement("hi");
+    const h1Tag = document.createElement("h1");
     const imgElement = document.createElement("img");
     const descriptionElement = document.createElement("p");
 
