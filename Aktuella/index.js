@@ -1,7 +1,7 @@
 const field = document.querySelector("#field");
 const btn = document.querySelector("#btn");
 const main = document.querySelector("main");
-const ul = document.createElement("ol");
+const ul = document.createElement("ul");
 const prevBtn = document.createElement("button");
 const nextBtn = document.createElement("button");
 prevBtn.appendChild(document.createTextNode("prev"));
@@ -81,7 +81,6 @@ prevBtn.addEventListener("click", () => {
             .open("GET", `${api}beers?page=${page}&per_page=10&beer_name=${field.value}`, true);
 
         response.send();
-
 
         response.onreadystatechange = function() {
             if(response.readyState === 4 && response.status === 200) {

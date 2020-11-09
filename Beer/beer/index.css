@@ -5,3 +5,7 @@ img{
 	max-height: 100px;
 	max-width: 100px;
 }
+td {
+	text-align: left;
+	width: min-content;
+}

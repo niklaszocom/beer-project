@@ -1,58 +1,24 @@
+const field = document.querySelector("#field");
+const btn = document.querySelector("#btn");
+const main = document.querySelector("main");
+const ul = document.createElement("ol");
+const prevBtn = document.createElement("button");
+const nextBtn = document.createElement("button");
+prevBtn.appendChild(document.createTextNode("prev"));
+nextBtn.appendChild(document.createTextNode("next"));
 
-
-const api = 'https://api.punkapi.com/v2/beers?per_page=10';
-
-const formElement = document.querySelector("form");
-const mainElement = document.querySelector("main");
-const btnElement = document.querySelector("p")
-
-let array = [];
-
-formElement.addEventListener("submit",onSubmit)
-
-function onSubmit(evt) {
-
-    const searchStr = evt.target[0].value;
-   
-    const url = `${api}&beer_name=${searchStr}`;
-
-    getData(url, render);
-   
-    evt.preventDefault();
-
-    array.push(searchStr)
-
-}
-
-
-function getData(url, callback) {
-    fetch(url)
-    .then(res => res.json())
-    .then(data => {
-
-        callback(data);
-
-    })
-    .catch(error => console.log(error));
-}
-
-function render(data) {
-
-    const ulElement = document.createElement("ul");
-
-    ulElement.addEventListener("click", onUlClicked);
-    
-
-    for(let i = 0; i < data.length; i ++) {
-
-        const beer = data[i];
-        
-        const liElement = document.createElement("li");  
-        liElement.setAttribute("name", beer.id);
-        liElement.textContent = beer.name;
-        ulElement.appendChild(liElement)  
-    
+const urladdress = function () {
+        var elements = document.querySelectorAll("a");
+        for (var i = 0; i < elements.length; i++) {
+        elements[i].onclick = function(e){
+        e.preventDefault()
+        let id = this.href
+        localStorage.setItem("beerId", id.replace("http://127.0.0.1:5500/Beer/Search/", ""))
+        location.href = "http://127.0.0.1:5500/Beer/beer/index.html"
+        console.log(id)
+        }
     }
+<<<<<<< Updated upstream
 
 
     mainElement.appendChild(ulElement);
@@ -85,63 +51,125 @@ function render(data) {
                 ulElement.appendChild(liElement)
                 mainElement.appendChild(ulElement)
                
-            }
-     
-        })
-        
-    })
-
-
-    
-    const nextBtn = document.createElement("button")
-    nextBtn.innerText = "next";
-    btnElement.appendChild(nextBtn);
-   
-
-  
-    nextBtn.addEventListener("click",() => {
-
-        removeAllChildnode(ulElement)
-
-        let url = `${api}&page=${n+1}&beer_name=${array[0]}`;
-        n += 1;
-        console.log(url)
-
-        fetch(url)
-        .then(res => res.json())
-        .then(nextElement => {
-
-            for(let i = 0; i < nextElement.length; i++) {
-
-                const liElement = document.createElement("li")
-                liElement.setAttribute("name", nextElement[i].id);
-                liElement.textContent = nextElement[i].name;
-                ulElement.appendChild(liElement)
-                mainElement.appendChild(ulElement)
-               
-            }
-     
-        })
-        
-    })
-
-    
-
-    
-   
+=======
 }
+// Loader
+
+const loader = document.createElement("h1");
+loader.appendChild(document.createTextNode("Loading..."));
+
+// Loader
+
+let page = 1;
+let displayButtons = false;
+
+const api = "https://api.punkapi.com/v2/";
+
+const response = new XMLHttpRequest();
+
+let currentBeers = [];
+
+// Search
+btn.onclick = (e) => {
+    e.preventDefault();
+    response
+        .open("GET", `${api}beers?page=1&per_page=10&beer_name=${field.value}`, true);
+    response.send();
+    main.appendChild(loader);
+};
+
+response.onreadystatechange = function() {
+    if(response.readyState === 4 && response.status === 200) {
+        main.removeChild(loader);
+        if(!displayButtons) {
+            displayButtons = true;
+            main.appendChild(ul);
+            document.body.appendChild(prevBtn);
+            document.body.appendChild(nextBtn);
+        } else {
+            removeAllChildnode(ul);
+        }
+        page = 1;
+        currentBeers = JSON.parse(response.responseText);
+
+        for(let i = 0; i <= currentBeers.length - 1; i++) {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = `${currentBeers[i].id}`;
+            a.appendChild(document.createTextNode(currentBeers[i].name));
+            li.appendChild(a);
+            ul.appendChild(li);
+        }
+        urladdress()
+  }
+};
+// Search
+
+prevBtn.addEventListener("click", () => {
+    if(page > 1) {
+        removeAllChildnode(ul);
+        page--;
+        const response = new XMLHttpRequest();
+
+        response
+            .open("GET", `${api}beers?page=${page}&per_page=10&beer_name=${field.value}`, true);
+
+        response.send();
 
 
+        response.onreadystatechange = function() {
+            if(response.readyState === 4 && response.status === 200) {
+                currentBeers = JSON.parse(response.responseText);
+                main.appendChild(ul);
 
-function onUlClicked(evt) {
-    const id = evt.target.getAttribute("name");
-    const url = `MyView.html?name=${id}`;
-    document.location.href = url;
+                for(let i = 0; i <= currentBeers.length - 1; i++) {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.href = `${currentBeers[i].id}`;
+                    a.appendChild(document.createTextNode(currentBeers[i].name));
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                }
+                urladdress()
+>>>>>>> Stashed changes
+            }
+        };
+    }
+});
 
-}
+nextBtn.addEventListener("click", () => {
+    if(currentBeers.length === 10) {
+        page++;
+        removeAllChildnode(ul);
+        const response = new XMLHttpRequest();
+
+        response
+            .open("GET", `${api}beers?page=${page}&per_page=10&beer_name=${field.value}`, true);
+
+        response.send();
+
+
+        response.onreadystatechange = function() {
+            if(response.readyState === 4 && response.status === 200) {
+                currentBeers = JSON.parse(response.responseText);
+                main.appendChild(ul);
+
+                for(let i = 0; i <= currentBeers.length - 1; i++) {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.href = `${currentBeers[i].id}`;
+                    a.appendChild(document.createTextNode(currentBeers[i].name));
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                }
+                urladdress()
+            }
+        };
+    }
+});
 
 function removeAllChildnode(parent) {
     while(parent.firstChild) {
-        parent.removeChild(parent.firstChild)
+        parent.removeChild(parent.firstChild);
     }
 }

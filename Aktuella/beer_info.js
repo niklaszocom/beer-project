@@ -50,7 +50,7 @@ function render(data) {
           }
         }
       }
-   
+
       const ingredients = ingredientsArray.join("");
       const ingredientsElement = document.innerHTML = ingredients;
 
