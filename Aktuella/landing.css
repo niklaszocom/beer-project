@@ -34,7 +34,6 @@
         align-items: center;
         background-color: pink;
         text-align: center;
-        border-radius: 11px;
         width: 131px;
         height: 39px;
         box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
@@ -47,10 +46,25 @@
     
     .seeMore {
         text-align: center;
-        display: block;
-        margin-left: 100px;
+        display: flex;
+        justify-content: center;
         padding-top: 5px;
         color: black;
+    }
+
+    .seeMoreBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(190, 189, 189);
+        text-align: center;
+        border-radius: 11px;
+        width: 131px;
+        height: 39px;
+        box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
+        margin-left: 7.5%;
+
+
     }
     
     
@@ -64,12 +78,12 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        background-color: white;
+        background-color: rgb(190, 189, 189);
         height:550px;
         width: 400px;
         margin-left: 500px;
         margin-right: 500px;
-        margin-top: 100px;
+        margin-top: 80px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         border-bottom-left-radius: 10px;
@@ -130,7 +144,7 @@
       #btn {
 
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         background-color: pink;
         text-align: center;
@@ -140,16 +154,36 @@
         box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
         border-radius: 100px;
         margin-left: 570px;
-        margin-top: 20px;
+        
 
     }
 
-    .searchHeading {
-        display: flex;
-        justify-content: center;
-    }
+    
+    
 
     h1 {
-        
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:5vw;
+
+
+    }
+
+    ul {
+        list-style-type: none;
+        text-align: center;
+        font-size: 30px;
+        text-decoration: none;
+    }
+
+    a { 
+        text-decoration: unset;
+        color: black;
+        font-family: Lucida Console;
+        font-size:2vw;
+    
     }
 
