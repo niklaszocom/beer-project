@@ -23,6 +23,7 @@ p.then(response => response.json())
 const init = () => {
  mainElement.innerHTML = ""
     const sectionElement = document.createElement('section');
+    sectionElement.className = "landing_section";
 
     for (let i = 0; i < beers.length; i++) {
         const beer = beers[i];
