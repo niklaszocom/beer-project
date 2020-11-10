@@ -68,7 +68,7 @@ function render(data) {
     h1Tag.textContent = `name: ${name}`;
     imgElement.src = img;
     descriptionElement.innerHTML = 
-    `<b>description:</b> ${description}<br>
+    `<b>Description:</b> ${description}<br>
     <b>Alcohol by volume:</b> ${abv}%<br>
     <b>Volume value:</b> ${volumeValue}<br>
     <b>Volume unit: </b>${volumeUnit}<br>
