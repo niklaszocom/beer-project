@@ -1,4 +1,8 @@
-body,html {height: 100%;margin: 0;}
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
 
 #container1 {
     height: 500px;
@@ -12,9 +16,7 @@ body,html {height: 100%;margin: 0;}
 
 .grid1 {
     display: grid;
-    grid-template-areas:
-        "a" 
-        "b";
+    grid-template-areas: "a" "b";
 }
 
 .grid-a {
@@ -23,4 +25,61 @@ body,html {height: 100%;margin: 0;}
 
 .grid-b {
     grid-area: b
+}
+
+.infoContainer {
+    width: 100%;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.sokResult {
+    color: rgb(115, 115, 115);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    line-height: 20px;
+    padding: 24px 0px 8px;
+}
+
+.innerContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imgBox {
+    /*height: 300px;
+    width: 500px;*/
+}
+
+.nameBox {
+    background-color: #f4efe8;
+}
+
+.infoBox {
+    background-color: #cfad99;
+}
+
+.buyContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.buy {
+    background-color: #5f7264;
+    width: auto;
+}
+
+.boxContainer {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.moreInfoBox {
+    display: flex;
+    flex-direction: column;
 }
