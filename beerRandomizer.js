@@ -8,15 +8,19 @@ async function getRandom() {
 
                 const imageText = document.getElementById('randomName')
                 const image = document.getElementById('randomLabel')
-                const imgURL = i.image_url ?? './placeholder.png'
-
-                const textElement = document.createElement('p')
-                const textNode = document.createTextNode(`${i.name}`)
-                textElement.appendChild(textNode)
+                const link = document.getElementById('randomLink')
+                const imageURL = i.image_url ?? './placeholder.png'
                 
-                image.src = imgURL
+
+                const nameElement = document.createElement('p')
+                const nameNode = document.createTextNode(`${i.name}`)
+                nameElement.appendChild(nameNode)
+                
+                
                 imageText.innerHTML = '';
                 imageText.appendChild(textElement)
+                imageText.appendChild(linkElement)
+                image.src = imageURL
 
 
             }
