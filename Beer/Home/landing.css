@@ -1,0 +1,100 @@
+@media only screen and (min-width: 768px){
+    body {
+
+            max-width: 1440px;
+            margin: auto; 
+            background-color: #778899;
+
+    }
+    .wrapper {
+        width: 90%;
+        margin: auto;
+    }
+
+    img {
+        display: flex;
+        height: 400px;
+        margin-top: 50px;
+        box-sizing: border-box;
+        object-fit: cover;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btnGo {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: pink;
+        text-align: center;
+        border-radius: 11px;
+        width: 131px;
+        height: 39px;
+        box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 100px;
+        margin-left: 100px;
+    }
+
+    .seeMore {
+        text-align: center;
+        display: block;
+        margin-left: 100px;
+        padding-top: 5px;
+        color: black;
+    }
+
+    section {
+        height: 400pxpx;
+    }
+
+    article {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: white;
+        height:550px;
+        width: 400px;
+        margin-left: 500px;
+        margin-right: 500px;
+        margin-top: 100px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .navbar {
+        width: 100%;
+        background-color: #555;
+        overflow: auto;
+      }
+
+      .navbar a {
+        float: left;
+        padding: 12px;
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .navbar a:hover {
+        background-color: #000;
+      }
+
+      .active {
+        background-color: pink;
+        @media screen and (max-width: 500px) {
+            .navbar a {
+              float: none;
+              display: block;
+            }
+        }
