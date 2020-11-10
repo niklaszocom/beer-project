@@ -6,11 +6,11 @@ async function getRandom() {
 
             for (const i of data) {
 
-                const imageText = document.getElementsByClassName('beer-name')
-                const image = document.getElementById('random')
+                const imageText = document.getElementById('randomName')
+                const image = document.getElementById('randomLabel')
                 const imgURL = i.image_url ?? './placeholder.png'
 
-                const textElement = document.createElement('h1')
+                const textElement = document.createElement('p')
                 const textNode = document.createTextNode(`${i.name}`)
                 textElement.appendChild(textNode)
                 

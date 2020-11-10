@@ -4,27 +4,16 @@ html {
     margin: 0;
 }
 
-#container1 {
+.contents {display: contents;}
+
+#randomName {
     height: 500px;
     width: 400px;
 }
 
-#random {
+#randomLabel {
     height: 60%;
     width: auto;
-}
-
-.grid1 {
-    display: grid;
-    grid-template-areas: "a" "b";
-}
-
-.grid-a {
-    grid-area: a;
-}
-
-.grid-b {
-    grid-area: b
 }
 
 .infoContainer {
