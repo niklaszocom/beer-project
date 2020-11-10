@@ -44,7 +44,7 @@ function render(data) {
             ingredientsArray.push(`amount unit: ${element.amount.unit}<br>`);
             if ('add' in element) {
                 ingredientsArray.push(`add :${element.add}<br>`);
-                ingredientsArray.push(`attribute :${element.attribute}<br>`);
+                ingredientsArray.push(`attribute :${element.attribute}`);
             }
           }
         }
@@ -57,22 +57,29 @@ function render(data) {
     const h1Tag = document.createElement("h1");
     const imgElement = document.createElement("img");
     const descriptionElement = document.createElement("p");
+    const section = document.createElement("section");
+
+    section.className = 'details';
+    h1Tag.className = "details_h1"
+    imgElement.className = "details_img";
+    descriptionElement.className = "details_p";
 
     
     h1Tag.textContent = `name: ${name}`;
     imgElement.src = img;
     descriptionElement.innerHTML = 
-     `description: ${description}<br>
-      Alcohol by volume: ${abv}%<br>
-      Volume value: ${volumeValue}<br>
-      Volume unit: ${volumeUnit}<br>
-      Ingredients:  ${ingredients}<br>
-      Yeast: ${yeast}<br
-      Food pairing: ${food_pairing}<br>
-      Brewers tips: ${brewers_tips}<br>`;
+    `<b>description:</b> ${description}<br>
+    <b>Alcohol by volume:</b> ${abv}%<br>
+    <b>Volume value:</b> ${volumeValue}<br>
+    <b>Volume unit: </b>${volumeUnit}<br>
+    <b>Ingredients:</b><br>${ingredients}<br>
+    <b>Yeast:</b> ${yeast}<br>
+    <b>Food pairing:</b> ${food_pairing}<br>
+    <b>Brewers tips:</b> ${brewers_tips}<br>`;
 
-    mainElement.appendChild(h1Tag);
-    mainElement.appendChild(imgElement);
-    mainElement.appendChild( descriptionElement);
+    section.appendChild(h1Tag);
+    section.appendChild(imgElement);
+    section.appendChild( descriptionElement);
+    mainElement.appendChild(section);
 
 }
