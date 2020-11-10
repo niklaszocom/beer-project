@@ -18,8 +18,7 @@ async function getRandom() {
                 
                 
                 imageText.innerHTML = '';
-                imageText.appendChild(textElement)
-                imageText.appendChild(linkElement)
+                imageText.appendChild(nameElement)
                 image.src = imageURL
 
 
