@@ -45,14 +45,7 @@ const init = () => {
         articleElement.appendChild(h2Element);
         articleElement.appendChild(imgElement);
         sectionElement.appendChild(articleElement);
-        
-
-        
-
-        /*console.log(beer.image_url)*/
-
-
-      
+    
 
     
     }
