@@ -5,60 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="javascript.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="beerInfo.js"></script>
+
     <title>infopage</title>
 </head>
 
 <body>
     <div class="infoContainer">
         <div class="sokResult">
-            <p>Sök Result</p>
+            <p>Result</p>
         </div>
         <div class="innerContainer">
-            <div class="imgBox"><img src="Namnlös.jpg" alt=""></div>
+            <img id="imgBox">
             <div class="nameBox">
                 <div class="infoBox">
-                    <h2>IPA BEER</h2>
-                    <p>Tillverkad i USA Nyanserad, tydligt humlearomatisk smak med tydlig beska, inslag av sirapslimpa,<br> grapefrukt och örter.</p>
+                    <h2 id="beer-name"></h2>
+                    <h3 id="beer-discription"></h3>
                     <div class="boxContainer ">
                         <div class="infoBox1">
-                            <h4>Nr 89607</h4>
+                            <span class="beer-basic-info">Alc %: </span>
+                            <span class="beer-basic-info" id="beer-alc-per"></span>
                         </div>
                         <div class="infoBox2">
-                            <h4>Flaska 355 ml</h4>
+                            <span class="beer-basic-info">ML: </span>
+                            <span class="beer-basic-info" id="beer-ml"></span>
+
                         </div>
                         <div classs="infoBox3">
-                            <h4>Alkoholhalt 6,2 %</h4>
+                            <span class="beer-basic-info">First brewed: </span>
+                            <span class="beer-basic-info" id="first-brewed"></span>
+
 
                         </div>
                     </div>
                 </div>
 
                 <div class="buyContainer">
-                    <h3>Handla online Välj leveranssätt</h3>
-                    <button class="buy"><p>Add to cart</p></button>
+
                 </div>
                 <div class="moreInfoBox">
-                    <div class="smak">
-                        <h3> Ingredients</h3>
-                        <h5>Färg</h5>
-
-                        <p> Mörk, gul färg.</p>
-                        <h5>Doft</h5>
-                        <p>Nyanserad, tydligt humlearomatisk doft med inslag av passionsfrukt, <br>sirapslimpa, grapefrukt och örter.</p>
-                    </div>
+                    <h3>Ingredients</h3>
+                    <div id="Ingredients"></div>
+                    <p id="IngredientsAmount"></p>
                     <div class="omDrycken">
                         <h3>Hops </h3>
-                        <h5>Producent</h5>
-                        <p>
-                            Lagunitas Brewing<br> Company</p>
-                        <h5>Om producenten</h5>
+                        <h3>Malt</h3>
                         <p>Bryggeriet ligger i Petaluma, i Kalifornien, och grundades 1993 <br>av Tony Magee. Namnet Lagunitas kommer av orten där<br> bryggeriet ursprungligen låg en kort tid, innan det flyttade<br> till Petaluma.</p>
                         <div class="övrigt">
-                            <h3>Food pairing</h3>
-                            <h5>Sortiment</h5>
-                            <p>Drycken ingår i vårt fasta sortiment. Sortimentet uppdateras<br> fyra gånger om året och består av cirka 2 400 drycker. <br> Butikens storlek och vad kunderna efterfrågar avgör <br> vilka drycker som finns i vilka butiker.
-                                Hela det fasta sortimentet kan handlas online <br>utan extra kostnad</p>
+                            <h3>FOOD PAIRING</h3>
+                            <p id="foodPairing">
+                                <p>
+                                    <h3>Brewers Tips</h3>
+                                    <p id="brewersTips"></p>
                         </div>
                     </div>
                 </div>

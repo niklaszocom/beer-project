@@ -4,7 +4,9 @@ html {
     margin: 0;
 }
 
-.contents {display: contents;}
+.contents {
+    display: contents;
+}
 
 #randomName {
     height: 500px;
@@ -71,4 +73,9 @@ html {
 .moreInfoBox {
     display: flex;
     flex-direction: column;
+}
+
+.beer-basic-info {
+    font-size: 16px;
+    font-weight: bold;
 }
