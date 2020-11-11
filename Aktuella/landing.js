@@ -49,7 +49,7 @@ const init = () => {
 
         
 
-        console.log(beer.image_url)
+        /*console.log(beer.image_url)*/
 
 
       
