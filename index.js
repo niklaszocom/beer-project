@@ -49,7 +49,7 @@ response.onreadystatechange = function () {
         for (let i = 0; i <= currentBeers.length - 1; i++) {
             const li = document.createElement("li");
             const a = document.createElement("a");
-            a.href = `/Aktuella/beer_info.html?name=${currentBeers[i].id}`;
+            a.href = `/beer_info.html?name=${currentBeers[i].id}`;
             a.appendChild(document.createTextNode(currentBeers[i].name));
             li.appendChild(a);
             ul.appendChild(li);
@@ -78,7 +78,7 @@ prevBtn.addEventListener("click", () => {
                 for (let i = 0; i <= currentBeers.length - 1; i++) {
                     const li = document.createElement("li");
                     const a = document.createElement("a");
-                    a.href = `/Aktuella/beer_info.html?name=${currentBeers[i].id}`;
+                    a.href = `/beer_info.html?name=${currentBeers[i].id}`;
                     a.appendChild(document.createTextNode(currentBeers[i].name));
                     li.appendChild(a);
                     ul.appendChild(li);
@@ -109,7 +109,7 @@ nextBtn.addEventListener("click", () => {
                 for (let i = 0; i <= currentBeers.length - 1; i++) {
                     const li = document.createElement("li");
                     const a = document.createElement("a");
-                    a.href = `/Aktuella/beer_info.html?name=${currentBeers[i].id}`;
+                    a.href = `/beer_info.html?name=${currentBeers[i].id}`;
                     a.appendChild(document.createTextNode(currentBeers[i].name));
                     li.appendChild(a);
                     ul.appendChild(li);
