@@ -8,8 +8,8 @@ body {
 .prevBtn {
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
+
 .wrapper {
     width: 90%;
     margin: auto;
@@ -79,7 +79,6 @@ img:hover {
 .landing_section {
     display: flex;
     justify-content: center;
-
     height: 550px;
 }
 
@@ -241,7 +240,6 @@ a {
     h2 {
       text-align: center;
       margin: auto;
-  
     }
   
     img {
@@ -251,20 +249,16 @@ a {
     .search_form {
         justify-content: center;
         flex-direction: column;
-       
       }
     
       #field {
         margin-top: 50px;
       }
     
-    
       #btn {
         display: block;
         width: 30%;
         margin-left: 31%;
-        
-       
       }
     
   }
