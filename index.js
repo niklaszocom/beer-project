@@ -6,6 +6,9 @@ const prevBtn = document.createElement("button");
 const nextBtn = document.createElement("button");
 prevBtn.appendChild(document.createTextNode("prev"));
 nextBtn.appendChild(document.createTextNode("next"));
+prevBtn.className = "prevBtn";
+nextBtn.className = "nextBtn";
+const btnSection = document.createElement("section")
 
 // Loader
 
@@ -38,8 +41,10 @@ response.onreadystatechange = function () {
         if (!displayButtons) {
             displayButtons = true;
             main.appendChild(ul);
-            document.body.appendChild(prevBtn);
-            document.body.appendChild(nextBtn);
+            btnSection.appendChild(prevBtn);
+            btnSection.appendChild(nextBtn);
+            document.body.appendChild(btnSection);
+            btnSection.className = "search_btn_section";
         } else {
             removeAllChildnode(ul);
         }
