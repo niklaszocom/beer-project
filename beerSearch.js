@@ -12,6 +12,7 @@ async function searchName(event) {
     const ul = document.getElementById('results')
     const li = document.createElement("li");
 
+    ul.innerHTML = ""
 
     axios
         .get(inputURL)
