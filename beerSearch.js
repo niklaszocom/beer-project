@@ -1,17 +1,3 @@
-//  function nameSubmit() {
-//      addEventListener("submit", function (event) {
-
-//          event.preventDefault();
-
-//          var data = document.getElementById('textInput').value
-
-//          name = data
-
-//          console.log(nameURL)
-
-//      })
-//  }
-
 const form = document.getElementById('form');
 form.addEventListener('submit', searchName);
 
