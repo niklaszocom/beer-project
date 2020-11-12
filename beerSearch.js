@@ -20,6 +20,8 @@ async function searchName(event) {
 
             const json = response.data;
 
+            if (json.length > 10 ) json.length = 10;
+
             const brewNames = json.sort((a, b) => {
                 if (a.name > b.name) {
                     return 1;
