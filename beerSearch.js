@@ -20,7 +20,28 @@ async function searchName(event) {
 
             const json = response.data;
 
-            if (json.length > 10 ) json.length = 10;
+            if (json.length > 10) {
+
+                for (const i of data) {
+                    newArr.push(i.name);
+                  }
+          
+                  var end = newArr.length;
+          
+                  var pg1 = newArr.slice(0, 10);
+          
+                  var pg2 = newArr.slice(10, 20);
+          
+                  var pg3 = newArr.slice(20, end);
+          
+                  var pages = {
+                    "Page1": pg1,
+                    "Page2": pg2,
+                    "Page3": pg3,
+                  };
+
+            }
+
 
             const brewNames = json.sort((a, b) => {
                 if (a.name > b.name) {
@@ -33,7 +54,6 @@ async function searchName(event) {
 
                 return 0;
             });
-
 
 
             for (const i of brewNames) {
