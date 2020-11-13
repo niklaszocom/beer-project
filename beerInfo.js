@@ -1,6 +1,6 @@
-async function getBeerInfo() {
+async function getBeerInfo(beerId) {
     axios
-        .get('https://api.punkapi.com/v2/beers/153')
+        .get('https://api.punkapi.com/v2/beers/' + beerId)
         .then(function(response) {
             const data = response.data;
 
@@ -47,4 +47,7 @@ async function getBeerInfo() {
         .then(function() {});
 }
 
-getBeerInfo();
+var currentLocation = window.location;
+var url = new URL(currentLocation);
+var beerId = url.searchParams.get("beerId");
+getBeerInfo(beerId);

@@ -1,7 +1,7 @@
 async function getRandom() {
     axios
         .get('https://api.punkapi.com/v2/beers/random')
-        .then(function (response) {
+        .then(function(response) {
             const data = response.data;
 
             for (const i of data) {
@@ -11,7 +11,8 @@ async function getRandom() {
                 const link = document.getElementById('randomLink')
 
                 const imageURL = i.image_url ?? './placeholder.png'
-                const beerURL = './infoPage.html/' + i.id
+                const beerId = i.id
+                const beerURL = './infoPage.html?beerId='+beerId
 
                 const nameElement = document.createElement('p')
                 const nameNode = document.createTextNode(`${i.name}`)
@@ -23,14 +24,13 @@ async function getRandom() {
                 image.src = imageURL
 
                 link.href = beerURL
-
             }
-            
+
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log(error);
         })
-        .then(function () {});
+        .then(function() {});
 }
 
 getRandom();
